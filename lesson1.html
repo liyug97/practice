@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="begin">开始点名</button>
+    <button id="end">结束点名</button>
+    <div id="name"></div>
+    <script>
+     window.onload=function(){
+         var begin=document.getElementById('begin');
+         var end=document.getElementById('end');
+         var name=document.getElementById('name');
+         var timer=null;
+         var arr=['张三','李四','郭丽誉','王五','国家大事','果果'];
+         name.innerText=arr[0];//初始值
+         begin.onclick=function(){
+             clearInterval(timer);//先清除定时器
+             timer=setInterval(function(){//开启定时器
+                 var s_index=parseInt(Math.random()*arr.length);//产生随机数
+                 var s_name=arr[s_index];//拿到对应的名字
+                 name.innerText=s_name;//展示出来
+             },1000);
+         };
+          end.onclick=function(){
+            clearInterval(timer);
+         }
+     }
+    </script>
+</body>
+</html>
