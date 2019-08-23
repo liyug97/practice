@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 400px;
+        height: 600px;
+        margin: 100px auto;
+    }
+    input{
+        margin: 5px 5px;
+    }
+    button{
+        width: 400px;
+        text-align: center;
+        margin: 5px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <section>
+            <h2 style="text-align: center">歌曲排行榜</h2>
+            <hr>
+        </section>
+        <section>
+            <input type="checkbox">时间都去哪了<br>
+            <input type="checkbox">海况天空<br>
+            <input type="checkbox">真的爱你<br>
+            <input type="checkbox">不再犹豫<br>
+            <input type="checkbox">偏偏喜欢你<br>
+            <input type="checkbox">成都<br>
+            <input type="checkbox">爱拼才会赢<br>
+            <input type="checkbox">老街<br>
+            <input type="checkbox">新贵妃醉酒<br>
+            <hr>
+        </section>
+        <section>
+            <button id="allSelect">全选</button>
+            <button id="cancelSelect">取消选中</button>
+            <button id="reverseSelect">反选</button>
+        </section>
+    </div>
+    <script>
+     window.onload=function(){
+         var inputs=document.querySelectorAll("input");
+         $("allSelect").onclick=function(){
+             for(var i=0;i<inputs.length;i++){
+                 inputs[i].checked=true;
+             }
+         }
+         $("cancelSelect").onclick=function(){
+             for(var i=0;i<inputs.length;i++){
+                 inputs[i].checked=false;
+             }
+         }
+         $("reverseSelect").onclick=function(){
+             for(var i=0;i<inputs.length;i++){
+                 inputs[i].checked=!inputs[i].checked;
+             }
+         }
+
+         //封装id
+         function $(id){
+            return typeof id==="string" ? document.getElementById(id) : null;
+         }
+     }
+    </script>
+</body>
+</html>
