@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #des {
+        font-size: 24px;
+        color: orange;
+        margin: 5px 35px;
+      }
+      #big_img {
+        height: 400px;
+        margin: 5px 35px;
+      }
+      ul > li {
+        list-style: none;
+        float: left;
+      }
+      a {
+        text-decoration: none;
+      }
+      ul > li > a > img {
+        margin-right: 8px;
+      }
+      .p {
+        width: 500px;
+        margin-right: 80px;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="des">小花</div>
+    <img src="./images/51.jpg" alt="小花" id="big_img" width="540" />
+    <ul id="fj">
+      <li>
+        <a href="./images/51.jpg" title="小花"
+          ><img src="./images/51.jpg" alt="" width="100" height="60" />
+          </a>
+      </li>
+      <li>
+        <a href="./images/52.jpg" title="玫瑰花"
+          ><img src="./images/52.jpg" alt="" width="100" height="60"
+        /></a>
+      </li>
+      <li>
+        <a href="./images/53.jpg" title="菊花"
+          ><img src="./images/53.jpg" alt="" width="100" height="60"
+        /></a>
+      </li>
+      <li>
+        <a href="./images/55.jpg" title="莲花" href="1.html"
+          ><img src="./images/55.jpg" alt="" width="100" height="60"
+        /></a>
+      </li>
+      <li>
+        <a href="./images/56.jpg" title="芙蓉"
+          ><img src="./images/56.jpg" alt="" width="100" height="60"
+        /></a>
+      </li>
+    </ul>
+    <script>
+      window.onload = function() {
+        var des = document.getElementById("des");
+        var big_img = document.getElementById("big_img");
+        var ul = document.getElementById("fj");
+        var aList = ul.getElementsByTagName("a");
+        var p = document.getElementsByClassName("p");
+        for (var i = 0; i < aList.length; i++) {
+          aList[i].onclick = function() {
+            big_img.src = this.href;
+            des.innerHTML = this.title;
+            p.innerHTML = this.title;
+            return false; //阻止默认事件
+          };
+        }
+      };
+    </script>
+  </body>
+</html>
