@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 0;
+    }
+    #aside{
+        width: 150px;
+        position: absolute;
+        left: 0;
+        top: 150px;
+    }
+    #aside img{
+        width: 100%;
+        height: 300px;
+        
+    }
+    p{
+        text-align: center;
+        height: 50px;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div id="aside">
+     <img src="./images/long.jpg" alt="">
+    </div>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <p>好好学习，天天向上！</p>
+    <script src="./js/myFun.js"></script>
+    <script>
+    window.onload=function(){
+        //获取广告头部的距离
+        var offset_top=$("aside").offsetTop;
+        var begin=0,end=0,timer=null;
+        //监听窗口的滚动
+        window.onscroll=function(){
+            clearInterval(timer);
+            //获取滚动的高度
+            var scroll_top=scroll().top;
+            end=offset_top+scroll_top;
+            //缓动动画
+            timer=setInterval(function(){
+              begin=begin+(end-begin)*0.2;
+              $("aside").style.top=begin+'px';
+              if(Math.round(begin)===end){
+                  clearInterval(timer);
+              }
+            },20)
+        }
+    }
+    function $(id){
+        return typeof id==="string" ?document.getElementById(id):null;
+    }
+    </script>
+</body>
+</html>
