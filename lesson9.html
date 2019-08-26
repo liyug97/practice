@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        vertical-align: top;
+      }
+      #box {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      #box ul li img {
+        width: 180px;
+        height: 120px;
+        margin: 10px 0;
+      }
+      body {
+        background: url("./images/53.jpg") no-repeat;
+        background-size: cover;
+      }
+      #box ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li><img src="./images/53.jpg" alt="" /></li>
+        <li><img src="./images/54.jpg" alt="" /></li>
+        <li><img src="./images/55.jpg" alt="" /></li>
+        <li><img src="./images/56.jpg" alt="" /></li>
+        <li><img src="./images/57.jpg" alt="" /></li>
+      </ul>
+    </div>
+    <script>
+      window.onload = function() {
+        var box = document.getElementById("box");
+        var allLis = box.getElementsByTagName("li");
+        for (var i = 0; i < allLis.length; i++) {
+          var sLi = allLis[i]; //取到当个li
+          sLi.index = i + 53;
+          console.log(sLi.index);
+          sLi.onmouseover = function() {
+            document.body.style.background =
+              'url("images/' + this.index + '.jpg") no-repeat';
+          };
+        }
+      };
+    </script>
+  </body>
+</html>
