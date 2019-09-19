@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>js切换轮播图</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+      }
+      #banner {
+        width: 580px;
+        height: 300px;
+        overflow: hidden;
+        border: 1px solid #999;
+        position: relative;
+      }
+      img {
+        width: 580px;
+        height: 300px;
+      }
+      #imglist {
+        width: 580px;
+        height: 300px;
+      }
+      #imglist a {
+        width: 580px;
+        height: 300px;
+        display: none;
+      }
+      #iconlist {
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+      }
+      #iconlist li {
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        float: left;
+        background-color: #999;
+        border-radius: 13px;
+        margin-left: 5px;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="imglist">
+        <a href=""><img src="./images/51.jpg" alt=""/></a>
+        <a href=""><img src="./images/52.jpg" alt=""/></a>
+        <a href=""><img src="./images/53.jpg" alt=""/></a>
+        <a href=""><img src="./images/54.jpg" alt=""/></a>
+        <a href=""><img src="./images/55.jpg" alt=""/></a>
+      </div>
+      <ul id="iconlist">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <script>
+      var imgs = document.getElementById("imglist").getElementsByTagName("a");
+      var icons = document
+        .getElementById("iconlist")
+        .getElementsByTagName("li");
+      var banner = document.getElementById("banner");
+      //设置一个循环的变量
+      var m = 0;
+      //设置定时器
+      var timer = setInterval(run, 2000);
+      //循环函数
+      function run() {
+        if (m >= 5) {
+          m = 0;
+        }
+        controlimg(m);
+        controlicon(m); //m值代表第几张图片
+        m++;
+      }
+      //定义一个函数控制图片
+      function controlimg(n) {
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].style.display = "none";
+        }
+        //显示当前的图片
+        imgs[n].style.display = "block";
+      }
+      //更改小图标的颜色
+      function controlicon(n) {
+        for (var i = 0; i < icons.length; i++) {
+          icons[i].style.backgroundColor = "#999";
+        }
+        //当前的图标变红
+        icons[n].style.backgroundColor = "red";
+      }
+      banner.onmouseover = function() {
+        clearInterval(timer);
+      };
+      banner.onmouseout = function() {
+        timer = setInterval(run, 2000);
+      };
+      //给图标绑定事件
+      for (var i = 0; i < icons.length; i++) {
+        (function(i) {
+          icons[i].onmouseover = function() {
+              controlimg(i);
+              controlicon(i);
+              //改变循环的变量
+              m=i+1;//i代表当前的图片 
+          };
+        })(i);
+      }
+    </script>
+  </body>
+</html>
