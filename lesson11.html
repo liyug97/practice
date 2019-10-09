@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中let使用注意</title>
+</head>
+<body>
+    <script>
+    //1.作用域只局限于当前代码块
+    // {
+    //     var str='张三';
+    //     console.log(str);//张三
+    //     let str1='李四';
+    //     console.log(str1);//李四
+    // }
+    // console.log('+++++++'+str);//张三
+    // console.log('--------'+str1);//str1 is not defined
+    // //2.使用let声明的作用域不会被提升
+    // {
+    //     console.log(str3);//undefined
+    //     var str3='张三';
+    // }
+    // {
+    //     console.log(str2);//str is not defined
+    //     let str2="李四";
+    // }
+    // //3.在相同的作用域下不能声明相同的变量
+    // {
+    //     var str1="张三";
+    //     var str1='李四';
+    //     console.log(str1);//李四
+    // }
+    {
+        let str2='王五';
+        let str2="赵柳";
+        console.log(str2);//报错
+    }
+    </script>
+</body>
+</html>

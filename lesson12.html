@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中const使用注意</title>
+</head>
+<body>
+    <script>
+    //1.只在当前的代码块中有效
+    // {
+    //     const a='zhangsan';
+    //     console.log(a);//zhangsan
+    // }
+    // console.log(a);//报错
+    // //2.作用域不会被提升
+    // //3.不能重复声明
+    // //4.声明的常量必须赋值
+    // {
+    //     const name;
+    //     name='zhangsan';
+    //     console.log(name);//报错
+    // }
+    // //5.不能修改
+    // {
+    //     const name='zhangsan';
+    //     name='lisi';
+    //     console.log(name);//报错
+    // }
+    //6.这种情况可以修改
+    
+        const obj={name:'张三'};
+        console.log(obj);
+        obj.name='李四';
+        console.log(obj);
+    
+    </script>
+</body>
+</html>
