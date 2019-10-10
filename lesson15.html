@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6新增的数据类型map(类似于对象)</title>
+</head>
+<body>
+    <script>
+    //创建一个map
+    let obj1={a:1},obj2={b:2};
+    const map=new Map([
+        ['name','张三'],
+        ['age','15'],
+        ['sex','男'],
+        [obj1,'今天天气很好'],
+        [obj2,'今天天很好'],
+        [[1,2],'hhh']
+    ])
+    // console.log(map.size);//6
+    // //set和get
+    // map.set('friend',['赵柳','力气']);
+    // console.log(map.get('name'));//张三
+    // //clear
+    // map.clear();
+    // //delete
+    // map.delete(obj1);
+    // //has
+    // map.has(obj2);//true
+    //遍历
+    map.forEach(function(value,index){
+        console.log(index + ':' + value);
+    })
+    </script>
+</body>
+</html>
