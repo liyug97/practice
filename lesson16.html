@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6新增的Symbol</title>
+</head>
+<body>
+    <script>
+    // let str1=Symbol();
+    // let str2=Symbol();
+    // console.log(str1===str2);
+    //对象的属性名
+    const obj={};
+    obj[Symbol('name')]='张三';
+    obj[Symbol('name')]='李四';
+    console.log(obj);
+    </script>
+</body>
+</html>
