@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue v-bind指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .active {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p
+        v-for="(college,index) in colleges"
+        v-bind:class="index===activeIndex?'active':''"
+      >
+        {{ college }}
+      </p>
+      <p v-bind:style="{color:fontColor}">今天天气很好！</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          colleges: ["ios学院", "java学院", "Html学院", "UI学院", "VR学院"],
+          activeIndex: 2,
+          fontColor: 'green'
+        }
+      });
+    </script>
+  </body>
+</html>
