@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>vue todolist练习</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input type="text" v-model="inputValue" />
+        <button @click="handleClick">提交</button>
+      </div>
+      <ul>
+        <li v-for="(item,index) in list">{{ item }}</li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          inputValue: "",
+          list: []
+        },
+        methods: {
+          handleClick() {
+            this.list.unshift(this.inputValue);
+            this.inputValue = "";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
