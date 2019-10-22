@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery</title>
+    <style>
+        body{
+            background-color:black;
+            border: 0;
+        }
+        .wrap{
+            width: 400px;
+            height: 250px;
+            border: 1px solid #fff;
+            margin: 100px auto;
+        }
+        .wrap img{
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+        .wrap ul{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+        .wrap ul li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+       <ul>
+          <li><a href="#" ><img src="./images/51.jpg" alt="" width="100" height="100"></a></li>
+          <li><a href="#" ><img src="./images/52.jpg" alt="" width="100" height="100"></a></li>
+          <li><a href="#" ><img src="./images/53.jpg" alt="" width="100" height="100"></a></li>
+          <li><a href="#" ><img src="./images/54.jpg" alt="" width="100" height="100"></a></li>
+          <li><a href="#" ><img src="./images/55.jpg" alt="" width="100" height="100"></a></li>
+          <li><a href="#"><img src="./images/56.jpg" alt="" width="100" height="100"></a></li>
+       </ul>
+    </div>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script>
+    $(function(){
+        $('.wrap').find('li').mouseenter(function(){
+            $(this).css('opacity',1).siblings('li').css('opacity',0.4);
+        })
+        $('.wrap').mouseleave(function(){
+            $(this).find('li').css('opacity',1);
+        })
+    })
+    </script>
+</body>
+</html>
