@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      .active {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li
+          v-for="(item,index) in movies"
+          @click="changeColor(index)"
+          :class="count===index ? 'active' : ''"
+        >
+          {{item}}
+        </li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          count: -1,
+          movies: ["海王", "哪吒", "大家好", "我和我的祖国"]
+        },
+        methods: {
+          changeColor(index) {
+            this.count = index;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
