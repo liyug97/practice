@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>js点名册</title>
+  </head>
+  <body>
+    <button id="begin">点击开始</button>
+    <button id="end">点击暂停</button>
+    <div id="name"></div>
+    <script>
+      window.onload = function() {
+        var begin = document.getElementById("begin");
+        var end = document.getElementById("end");
+        var name = document.getElementById("name");
+        var timer = null;
+        var arr = ["张三", "李四", "郭丽誉", "王水生", "张思"];
+        name.innerText = arr[0];
+        begin.onclick = function() {
+          timer = setInterval(function() {
+            var s_index = parseInt(Math.random() * arr.length);
+            var s_name = arr[s_index];
+            name.innerText = s_name;
+          }, 20);
+        };
+        end.onclick = function() {
+          clearInterval(timer);
+        };
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>选项卡例子</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      #box {
+        margin: 50px;
+      }
+      #box ul li {
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #d8d8d8;
+        margin-right: 2px;
+        float: left;
+      }
+      #box .active {
+        background-color: red;
+      }
+      #content {
+        clear: both;
+      }
+      #content div {
+        width: 404px;
+        height: 200px;
+        border: 1px solid #d8d8d8;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li class="active">新闻</li>
+        <li>社会</li>
+        <li>科技</li>
+        <li>娱乐</li>
+      </ul>
+      <div id="content">
+        <div style="display: block;">新闻</div>
+        <div>社会</div>
+        <div>科技</div>
+        <div>娱乐</div>
+      </div>
+    </div>
+    <script>
+      var box = document.getElementById("box");
+      var aLi = box.getElementsByTagName("li");
+      var content = document.getElementById("content");
+      var div = content.getElementsByTagName("div");
+      for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onclick = function() {
+          for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = "";
+            div[i].style.display = "none";
+          }
+          this.className = "active";
+          div[this.index].style.display = "block";
+        };
+      }
+    </script>
+  </body>
+</html>

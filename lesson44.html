@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>js实现换肤</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      body {
+        background: url("./images/51.jpg") no-repeat;
+        background-size: cover;
+      }
+      #box {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      #box ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      img {
+        width: 180px;
+        height: 100px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li><img src="./images/53.jpg" alt="" /></li>
+        <li><img src="./images/54.jpg" alt="" /></li>
+        <li><img src="./images/55.jpg" alt="" /></li>
+        <li><img src="./images/56.jpg" alt="" /></li>
+        <li><img src="./images/57.jpg" alt="" /></li>
+      </ul>
+    </div>
+    <script>
+      window.onload = function() {
+        var box = document.getElementById("box");
+        var aLi = box.getElementsByTagName("li");
+        for (var i = 0; i < aLi.length; i++) {
+          var sLi = aLi[i];
+          sLi.index = i + 53; 
+          sLi.onclick = function() {
+            document.body.style.background =
+              'url("images/' + this.index + '.jpg") no-repeat';
+          };
+        }
+      };
+    </script>
+  </body>
+</html>

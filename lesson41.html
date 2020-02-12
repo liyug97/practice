@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>获取所有的checkbox</title>
+  </head>
+  <body>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <script>
+      var inputs = document.getElementsByTagName("input");
+      var checkboxArry = [];
+      for (var i = 0; i < inputs.length; i++) {
+        var obj = inputs[i];
+        if (obj.type == "checkbox") {
+          checkboxArry.push(obj);
+        }
+      }
+    </script>
+  </body>
+</html>
