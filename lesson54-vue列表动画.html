@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        margin: 20px;
+        border: 1px dashed black;
+        padding: 5px;
+        line-height: 20px;
+        font-size: 12px;
+        width: 100%;
+      }
+      li:hover {
+        background-color: hotpink;
+        transition: all 1.5s ease;
+      }
+      .v-enter,
+      .v-leave-to {
+        opacity: 0;
+        transform: translateY(80px);
+      }
+      .v-enter-active,
+      .v-leave-active {
+        transition: all 0.8s ease;
+      }
+      /*v-move和v-leave-active配合使用可以使列表后续的元素渐渐的飘上来的效果*/
+      .v-move {
+        transition: all 0.6s ease;
+      }
+      /*加绝对元素的话，被删除的元素就脱离了文档流，下面的元素就挤上来了*/
+      .v-leave-active {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <label>
+          Id:
+          <input type="text" v-model="id" />
+        </label>
+        <label>
+          Name:
+          <input type="text" v-model="name" />
+        </label>
+        <input type="button" value="添加" @click="add" />
+      </div>
+      <!--为transition-group设置tag属性，指定它渲染为指定的元素，如果不指定tag属性默认渲染为span标签-->
+      <transition-group appear tag="ul">
+        <li v-for="(item,index) in list" :key="item.id" @click="del(index)">
+          {{item.id}}-----{{item.name}}
+        </li>
+      </transition-group>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          id: "",
+          name: "",
+          list: [
+            { id: 1, name: "张三" },
+            { id: 2, name: "李四" },
+            { id: 3, name: "张思" }
+          ]
+        },
+        methods: {
+          add() {
+            this.list.push({ id: this.id, name: this.name });
+            this.id = "";
+            this.name = "";
+          },
+          del(index) {
+            this.list.splice(index, 1);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
