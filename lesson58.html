@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="inputValue" />
+      <button @click="add">添加</button>
+      <ul>
+        <todo-item
+          v-for="(item,index) in list"
+          :key="index"
+          :content="item"
+          @delete="handleDelete(index)"
+          :index="index"
+        >
+        </todo-item>
+      </ul>
+    </div>
+    <script>
+      Vue.component("todo-item", {
+        props: ["content", "index"],
+        template: "<li @click='del(index)'>{{content}}</li>",
+        methods: {
+          del() {
+            this.$emit("delete", this.index);
+          }
+        }
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          inputValue: "",
+          list: []
+        },
+        methods: {
+          add() {
+            this.list.push(this.inputValue);
+            this.inputValue = "";
+          },
+          handleDelete(index) {
+            this.list.splice(index, 1);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
