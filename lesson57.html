@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="inputValue" />
+      <button @click="add">添加</button>
+      <div class="list">
+        <ul>
+          <li v-for="(item,index) in list" :key="index" @click="del(index)">
+            {{item}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          inputValue: "",
+          list: []
+        },
+        methods: {
+          add() {
+            this.list.push(this.inputValue);
+            this.inputValue = "";
+          },
+          del(index) {
+            this.list.splice(index, 1);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
