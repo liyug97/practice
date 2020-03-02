@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script type="text/babel">
+      class List extends React.Component {
+        render() {
+          const { list } = this.props;
+          return (
+            <div>
+              <ul>
+                {list.map((v, i) => {
+                  return <li key={i}>{v}</li>;
+                })}
+              </ul>
+            </div>
+          );
+        }
+      }
+      class Add extends React.Component {
+        add = () => {
+          this.props.allAdd(this.input.value);
+          this.input.value=''
+        };
+        render() {
+            const{length}=this.props
+          return (
+            <div>
+              <input
+                type="text"
+                ref={(input) => {
+                  this.input=input;
+                }}
+              />
+              <button onClick={this.add}>add#{length}</button>
+            </div>
+          );
+        }
+      }
+      class App extends React.Component {
+        state = {
+          list: ["吃饭", "睡觉", "打游戏"]
+        };
+        add = (value) => {
+        // console.log(value);
+        const{list}=this.state
+        list.unshift(value)
+        this.setState({
+            list
+        })
+        };
+        render() {
+          const { list } = this.state;
+          return (
+            <div>
+              <Add allAdd={this.add} length={list.length}/>
+              <List list={list} />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
