@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取所有的checkbox</title>
+</head>
+<body>
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <input type="checkbox" name="" id="">
+    <script>
+        var domlist=document.getElementsByTagName('input')
+        var checkboxlist=[];//返回的所欲的checkbox
+        var len=domlist.length
+        while(len--){
+            if(domlist[len].type=='checkbox'){
+                checkboxlist.push(domlist[len])
+            }
+        }
+    </script>
+</body>
+</html>
