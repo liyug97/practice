@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        width: 200px;
+        height: 150px;
+      }
+      .ad{
+          position: fixed;
+          right: 0;
+          bottom: 0;
+      }
+      .ad span{
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          right: 0;
+          top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ad">
+      <img src="./images/60.jpg" alt="" />
+      <span></span>
+    </div>
+    <script>
+        $(function(){
+          $('span').click(function(){
+              $('.ad').remove()
+          })
+          $('.ad').stop().slideDown(1000).fadeOut(1000).fadeIn(1000)
+        })
+    </script>
+  </body>
+</html>

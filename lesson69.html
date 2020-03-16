@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        width: 100px;
+        height: 300px;
+        display: none;
+      }
+      .img1 {
+        float: left;
+        position: fixed;
+        left: 0;
+        top: 200px;
+      }
+      .img2 {
+        float: right;
+        position: fixed;
+        right: 0;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./images/54.jpg" alt="" class="img1" />
+    <img src="./images/55.jpg" alt="" class="img2" />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    ><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        $(function(){
+            //监听网页的滚动
+            $(window).scroll(function(){
+                var offset=$('html,body').scrollTop();
+                if(offset>300){
+                    $('img').show(1000)
+                }else{
+                    $('img').hide(1000)
+                }
+            })
+        })
+    </script>
+  </body>
+</html>
