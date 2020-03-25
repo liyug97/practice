@@ -25,11 +25,6 @@
       ul > li > a > img {
         margin-right: 8px;
       }
-      .p {
-        width: 500px;
-        margin-right: 80px;
-        float: right;
-      }
     </style>
   </head>
   <body>
@@ -68,12 +63,10 @@
         var big_img = document.getElementById("big_img");
         var ul = document.getElementById("fj");
         var aList = ul.getElementsByTagName("a");
-        var p = document.getElementsByClassName("p");
         for (var i = 0; i < aList.length; i++) {
           aList[i].onclick = function() {
             big_img.src = this.href;
             des.innerHTML = this.title;
-            p.innerHTML = this.title;
             return false; //阻止默认事件
           };
         }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="./js/jquery-3.3.1.js"></script>
     <style>
     *{
         margin: 0;
@@ -32,7 +33,7 @@
 </head>
 <body>
     <div id="aside">
-     <img src="./images/long.jpg" alt="">
+     <img src="./images/logo.jpg" alt="">
     </div>
     <p>好好学习，天天向上！</p>
     <p>好好学习，天天向上！</p>
@@ -67,12 +68,12 @@
         window.onscroll=function(){
             clearInterval(timer);
             //获取滚动的高度
-            var scroll_top=scroll().top;
+            var scroll_top=scroll().offsetTop;
             end=offset_top+scroll_top;
             //缓动动画
             timer=setInterval(function(){
               begin=begin+(end-begin)*0.2;
-              $("aside").style.top=begin+'px';
+              $("aside").style.offsetTop=begin+'px';
               if(Math.round(begin)===end){
                   clearInterval(timer);
               }
